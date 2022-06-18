@@ -12,6 +12,8 @@
 ## Download Link
 - https://aounah.com/saltshani1db%20Setup%201.0.0.exe
 
+## Contribute to the development of this open source project.
+
 ## License & copyright 
 
 ©️ Aoun Abu Hassan
