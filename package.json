@@ -1,0 +1,81 @@
+{
+  "name": "saltshani1db",
+  "productName": "saltshani1db",
+  "version": "1.0.0",
+  "description": "MySQL database backup software",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\"",
+    "node": "nodemon -e *  --exec yarn start",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "aouna",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "saltshani1db"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "discord.js": "^13.8.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "form-data": "^4.0.0",
+    "mysqldump": "^3.2.0",
+    "nodemon": "^2.0.16",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "19.0.4",
+    "electron-builder": "^23.0.3"
+  },
+  "build": {
+    "appId": "com.aounah.saltshani1db",
+    "productName": "saltshani1db",
+    "win":{
+      "target":["nsis"],
+      "icon": "src/logo.ico",
+      "requestedExecutionLevel": "highestAvailable"
+    },
+    "nsis": {
+      "installerIcon": "src/logo.ico",
+      "uninstallerIcon": "src/logo.ico",
+      "uninstallDisplayName": "saltshani1db-uninstaller",
+      "license": "LICENSE.md",
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
+  }
+}

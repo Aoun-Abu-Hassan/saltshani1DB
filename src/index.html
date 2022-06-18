@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'"> -->
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="">
+    <div>
+    <header class="flex flex-row-reverse justify-start bg-[#1e1d1d]" >
+      <i class="fa-solid fa-xmark pr-5 pt-1 text-white text-base cursor-pointer" id="closeBtn"></i>
+      <i class="fa-regular fa-square pr-5 pt-1 text-white text-base cursor-pointer" id="maximizeBtn"></i>
+      <i class="fa-solid fa-window-minimize pr-5 pb-2 text-white text-base cursor-pointer" id="minimizeBtn"></i>
+      <i class="pl-10 pb-2 text-base cursor-pointer w-screen" style="-webkit-app-region:drag;"></i>
+    </header>
+    <!--small white line-->
+    <div class="w-full h-px bg-[#fff]"></div>
+  </div>
+  <div class="flex flex-col pl-2 pt-1 lg:pl-2 pt-1">
+    <i class="fa-solid fa-circle text-red-500 text-base" id="blinkingDot"></i>
+  </div>
+  <!-- power button that is centered -->
+  <div class="flex flex-col justify-center items-center mt-20 lg:mt-25">
+    <i class="fa-solid fa-power-off text-red-500 text-9xl" id="PowerButton"></i>
+    <!-- time counter -->
+    <div class="flex flex-col justify-center items-center mt-5 lg:mt-15">
+      <p class="text-xl text-white" id="timer">00:00:00</p>
+    </div>
+    <!-- time counter -->
+    <div class="mt-9">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline lg:py-4 px-6" id="database" type="text" placeholder="Database Name" required>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 mt-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline lg:py-4 px-6" id="discordwebhook" type="password" placeholder="Discord Webhook" required>
+    </div>
+  </div>
+  <div class="flex flex-row justify-center items-center">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-3 mr-2 rounded focus:outline-none focus:shadow-outline" type="button" id="save">
+      Start
+    </button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline" type="button" id="dumppath">
+      DB Dump <i class="fa-solid fa-file"></i>
+    </button>
+  </div>
+  <!-- set blinking dot in footer -->
+  <!-- <div class="flex flex-col pl-2 pt-20 mt-5 lg:pl-2">
+    <i class="fa-solid fa-circle text-red-500 text-base" id="blinkingDot"></i>
+  </div> -->
+  <!-- set blinking dot in responsive footer tailwind -->
+  <!-- <div class="flex flex-col pl-2 pt-20 mt-20 lg:pl-2 m-50">
+    <i class="fa-solid fa-circle text-red-500 text-base" id="blinkingDot"></i>
+  </div> -->
+  </body>
+</html>
