@@ -87,7 +87,7 @@ const createWindow = () => {
     } else {
       new Notification({
         title:'Saltshani1DB',
-        body:'Please select a file path',
+        body:'Please select a folder path',
       }).show()
     }
   })
