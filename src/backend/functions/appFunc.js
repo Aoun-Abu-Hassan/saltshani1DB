@@ -7,12 +7,16 @@ module.exports.AppFunc = {
             const PowerButton = document.getElementById('PowerButton');
             const btnSave = document.getElementById('save');
             const dbButton = document.getElementById('dumppath');
+            const backuptime = document.getElementById('backuptime')
             var clicked = false
             var intervalId;
             var intervalId2;
             btnSave.onclick = async function () {
+                if(backuptime === null || backuptime === '') {
+                    alert ('Please provide the backup time.')
+                }
                 if (databaseName.value === '' && discordWebhook.value === '') {
-                    console.log('empty')
+                    alert('Please provide the database name and discord webhook.')
                 } else if (databaseName.value !== '' && discordWebhook.value !== '') {
                     if (clicked) {
                         PowerButton.classList.remove('text-green-500')
@@ -32,17 +36,13 @@ module.exports.AppFunc = {
                         PowerButton.classList.add('text-green-500')
                         ipcRenderer.send('app/poweron', obj)
                         setTimeout(() => {
-                            const discordWebhookk = document.getElementById('discordwebhook')
-                            ipcRenderer.send('axios', discordWebhookk.value)
-                        },5000)
+                            ipcRenderer.send('app/poweron', obj)
+                        },backuptime.value * 60000 / 2)
                         dbButton.disabled = true
                         btnSave.innerHTML = 'Stop'
                         intervalId = setInterval(() => {
-                            //date = new Date()
                             ipcRenderer.send('app/poweron', obj)
-                            const discordWebhookk = document.getElementById('discordwebhook')
-                            ipcRenderer.send('axios', discordWebhookk.value)
-                        }, 10000)
+                        }, backuptime.value * 60000)
                         intervalId2 = setInterval(() => {
                             var time = new Date() - date
                             var hours = Math.floor(time / (1000 * 60 * 60))
@@ -86,9 +86,4 @@ module.exports.AppFunc = {
                 })
             })
         },
-    /* discordWebhook:
-        async function main() {
-            const {ipcRenderer} = require('electron')
-            
-        } */
 }

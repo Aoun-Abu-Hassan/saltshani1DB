@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'"> -->
     <meta charset="UTF-8" />
     <title>Hello World!</title>
     <link rel="stylesheet" href="index.css" />
@@ -31,7 +30,8 @@
     </div>
     <!-- time counter -->
     <div class="mt-9">
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline lg:py-4 px-6" id="database" type="text" placeholder="Database Name" required>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline lg:py-4 px-6" id="backuptime" type="number" placeholder="Backup Time (in minutes)" required>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 mt-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline lg:py-4 px-6" id="database" type="text" placeholder="Database Name" required>
       <input class="shadow appearance-none border rounded w-full py-2 px-3 mt-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline lg:py-4 px-6" id="discordwebhook" type="password" placeholder="Discord Webhook" required>
     </div>
   </div>
@@ -43,13 +43,5 @@
       DB Dump <i class="fa-solid fa-file"></i>
     </button>
   </div>
-  <!-- set blinking dot in footer -->
-  <!-- <div class="flex flex-col pl-2 pt-20 mt-5 lg:pl-2">
-    <i class="fa-solid fa-circle text-red-500 text-base" id="blinkingDot"></i>
-  </div> -->
-  <!-- set blinking dot in responsive footer tailwind -->
-  <!-- <div class="flex flex-col pl-2 pt-20 mt-20 lg:pl-2 m-50">
-    <i class="fa-solid fa-circle text-red-500 text-base" id="blinkingDot"></i>
-  </div> -->
   </body>
 </html>

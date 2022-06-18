@@ -3,9 +3,7 @@ const path = require('path');
 const mysqldump = require('mysqldump');
 const { v4: uuidv4 } = require('uuid');
 const { AppFunc } = require('./backend/functions/appFunc');
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
-  // eslint-disable-line global-require
   app.quit();
 }
 
@@ -13,7 +11,6 @@ const filepath = []
 const status = []
 const ID = []
 const createWindow = () => {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 610,
@@ -28,8 +25,6 @@ const createWindow = () => {
       preload: path.join(__dirname, './backend/preload.js')
     }
   });
-
-  // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
   ipcMain.on('app/close', () => {
     app.quit()
@@ -56,8 +51,7 @@ const createWindow = () => {
         },
         dumpToFile: `${filepath[0]}/${ID}.sql`
       })
-      ipcMain.on('axios', (event, arg) => {
-        const axios = require('axios').default;
+      const axios = require('axios').default;
         axios({ method: 'GET', url: "https://api.gofile.io/getServer", headers: {} }).then(function (res) {
           const serverStore = JSON.parse(JSON.stringify(res.data.data.server))
           const FormData = require('form-data')
@@ -72,7 +66,7 @@ const createWindow = () => {
           }).then((ress) => {
             console.log(JSON.stringify(ress.data))
             const { MessageEmbed, WebhookClient } = require('discord.js')
-            const Webhook = new WebhookClient({url:'https://discord.com/api/webhooks/987775121014022174/tngw-1FkTgnMrCqjVw2WMQX8YR1ebtnxAqdv5EoX2mBIgAP4cJAkAwTio55U1IXTlPOE'})
+            const Webhook = new WebhookClient({url:arg.Discord})
             const embed = new MessageEmbed()
               .setTitle('Saltshani1DB Backup System')
               .setDescription('Backup Link: ' + ress.data.data.downloadPage)
@@ -87,19 +81,15 @@ const createWindow = () => {
           }).catch(function (err) {
             console.log(err)
           })
-          /* const dddd = JSON.parse(ddd)
-          console.log(dddd.data.server) */
         }).catch(function (err) {
           console.log(err)
         })
-      })
     } else {
       new Notification({
         title:'Saltshani1DB',
         body:'Please select a file path',
       }).show()
     }
-    //console.log(filepath[0])
   })
   ipcMain.on('app/poweroff', () => {
     console.log('power off')
