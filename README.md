@@ -10,7 +10,7 @@
 - Discord Webhook
 
 ## Download Link
-- https://aounah.com/saltshani1db%20Setup%201.0.0.exe
+- https://aounah.com/saltshani1db%20Setup%201.0.0.zip
 
 ## Contribute to the development of this open source project.
 
